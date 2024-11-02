@@ -1,4 +1,5 @@
 CMS Application
+
 This CMS application is a full stack project that allows users with appropriate permissions to create, delete, and edit articles, which are presented on a clean and accessible front end.
 
 Features
