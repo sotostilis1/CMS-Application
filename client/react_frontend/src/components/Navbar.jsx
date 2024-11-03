@@ -35,7 +35,7 @@ const Navbar = () => {
                             onMouseLeave={handleMouseLeave}
                             className="cursor-pointer"
                         >
-                            Images
+                            <Link to="/images">Images</Link>
                         </li>
                     </ul>
                 </div>
