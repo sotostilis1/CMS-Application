@@ -42,7 +42,8 @@ const LogIn = () => {
             if (error.response.status === 401) {
                 console.error('Wrong credentials');
                 showMessage('Wrong credentials');
-              } else if(error.response.status === 400)
+              } else if(error.response.status === 500)
+                showMessage('Error logging in')
                 console.error('Error logging in:', error);
         }
       };

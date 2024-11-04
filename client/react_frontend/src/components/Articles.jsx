@@ -10,6 +10,18 @@ const Articles = () => {
   const [isNewArticle, setIsNewArticle] = useState(false);
   const [articles, setArticles] = useState([]);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+
+    const showMessage = (msg) => {
+      setMessage(msg);
+      setIsVisible(true);
+      setTimeout(() => {
+          setIsVisible(false);
+          setMessage(''); // Clear the message
+      }, 1500);
+  };
+  
 
 
   // Fetch articles from the server
@@ -47,7 +59,7 @@ const Articles = () => {
       await axios.delete(`http://localhost:3000/api/articles/${articleId}`, {
         withCredentials: true,
       });
-      console.log('Article deleted successfully');
+      showMessage('Article deleted successfully');
       setSelectedArticle(null);
       fetchArticles(); // Refresh articles after deletion
     } catch (error) {
@@ -70,6 +82,9 @@ const Articles = () => {
               New Article
             </button>
           </div>
+          {isVisible && (
+            <div className='p-2 flex justify-center text-sm text-red-400'>{message}</div>
+            )}
           <div className='p-2 bg-white'>
             <div>
               <ArticleList articles={articles} onSelectArticle={handleSelectArticle} />

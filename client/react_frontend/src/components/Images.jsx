@@ -10,6 +10,18 @@ const Images = () => {
   const [isNewArticle, setIsNewArticle] = useState(false);
   const [articles, setArticles] = useState([]);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isVisible, setIsVisible] = useState(false);
+
+    const showMessage = (msg) => {
+      setMessage(msg);
+      setIsVisible(true);
+      setTimeout(() => {
+          setIsVisible(false);
+          setMessage(''); // Clear the message
+      }, 1500);
+  };
+  
 
 
   // Fetch articles from the server
@@ -70,6 +82,9 @@ const Images = () => {
               New Article
             </button>
           </div>
+          {isVisible && (
+            <div className='p-2 flex justify-center text-sm text-red-400'>{message}</div>
+            )}
           <div className='p-5 bg-white'>
             <div>
               <ImageList articles={articles} onSelectArticle={handleSelectArticle} />

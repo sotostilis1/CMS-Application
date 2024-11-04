@@ -10,12 +10,12 @@ export const loginUser = async (req, res, userService) => {
         const user = await userService.findUserByUsername(username);
 
         if (!user) {
-            return res.status(400).json({ message: 'Invalid username or password' });
+            return res.status(401).json({ message: 'Invalid username or password' });
         }
         
         const isPasswordCorrect = await userService.comparePassword(password, user.password);
         if (!isPasswordCorrect) {
-            return res.status(400).json({ message: 'Invalid username or password' });
+            return res.status(401).json({ message: 'Invalid username or password' });
         }
         
 
