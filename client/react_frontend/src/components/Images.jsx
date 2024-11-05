@@ -76,7 +76,7 @@ const Images = () => {
     <div className='flex items-start justify-between'>
       <div className='w-[45%] bg-white m-8 ml-2 mr-2 border rounded'>
         <div className='bg-[#f9f9f9]'>
-          <div className='py-8 px-10 border-b flex items-center justify-between'>
+          <div className='py-8 sm:px-10 px-4 border-b flex items-center justify-between'>
             <div className='text-2xl'>Images</div>
             <button className='bg-green-400 p-1 rounded-md text-xs transition hover:bg-green-500 hover:text-white border-transparent' onClick={handleNewArticle}>
               New Article
